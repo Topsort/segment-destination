@@ -9,9 +9,9 @@ import {
   PurchasesPayload as TopsortPurchasesPayload
 } from './payload/topsort'
 
-// This function coverts the SegmentEventPayload to TopsortImpressionPayload
+// This function coverts the SegmentEventPayload to TopsortEventPayload or TopsortClickPayload
 // SegmentEventPayload is the payload that went through the mapping defined in the Segment UI
-// TopsortImpressionPayload is the payload that will be sent to the Topsort Events API
+// TopsortImpressionPayload or TopsortClickPayload is the payload that will be sent to the Topsort Events API
 export function convertEvent(args: {
   eventType: EventType
   payload: SegmentEventPayload
