@@ -1,4 +1,6 @@
 import type { DestinationDefinition } from '@segment/actions-core'
+import { defaultValues } from '@segment/actions-core'
+
 import type { Settings } from './generated-types'
 
 import impression from './impression'
@@ -23,6 +25,29 @@ const destination: DestinationDefinition<Settings> = {
       }
     }
   },
+  presets: [
+    {
+      name: 'Impression',
+      subscribe: 'type = "track" and event = "Product Viewed"',
+      partnerAction: 'search',
+      mapping: defaultValues(impression.fields),
+      type: 'automatic'
+    },
+    {
+      name: 'Click',
+      subscribe: 'type = "track" and event = "Product Clicked"',
+      partnerAction: 'pageView',
+      mapping: defaultValues(click.fields),
+      type: 'automatic'
+    },
+    {
+      name: 'Purchase',
+      subscribe: 'type = "track" and event = "Order Completed"',
+      partnerAction: 'purchase',
+      mapping: defaultValues(purchase.fields),
+      type: 'automatic'
+    }
+  ],
   actions: {
     impression,
     click,

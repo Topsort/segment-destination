@@ -9,6 +9,7 @@ import { items } from 'src/destinations/moloco-rmp/common/fields'
 
 const action: ActionDefinition<Settings, Payload> = {
   title: 'Purchase',
+  defaultSubscription: 'type = "track" and event = "Order Completed"',
   description: 'A purchase is sent to Topsort once a consumer places an order.',
   fields: {
     event_id,

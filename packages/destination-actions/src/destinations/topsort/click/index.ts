@@ -8,6 +8,7 @@ import { convertEvent } from '../common/convert'
 
 const action: ActionDefinition<Settings, Payload> = {
   title: 'Click',
+  defaultSubscription: 'type = "track" and event = "Product Clicked"',
   description: 'A click is sent to Topsort when the consumer has clicked on a promotable.',
   fields: {
     event_id,
