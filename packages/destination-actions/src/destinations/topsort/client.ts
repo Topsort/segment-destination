@@ -1,5 +1,5 @@
 import { RequestClient, ModifiedResponse } from '@segment/actions-core'
-import type { Settings } from '../generated-types'
+import type { Settings } from './generated-types'
 
 export class TopsortAPIClient {
   url: string
