@@ -44,7 +44,7 @@ const action: ActionDefinition<Settings, Payload> = {
       type: 'string',
       required: false,
       default: {
-        '@path': '$.device.advertisingId'
+        '@path': '$.properties.resolvedBidId'
       }
     },
     items: {
