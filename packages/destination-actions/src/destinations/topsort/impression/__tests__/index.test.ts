@@ -6,7 +6,7 @@ import Destination from '../../index'
 const testDestination = createTestIntegration(Destination)
 
 describe('Topsort.impression', () => {
-  it('should successfully build a impression and send', async () => {
+  it('should be successful with default mappings and resolvedBidId', async () => {
     nock(/.*/).persist().post(/.*/).reply(200)
 
     const event = createTestEvent({
@@ -27,7 +27,7 @@ describe('Topsort.impression', () => {
     expect(responses[0].status).toBe(200)
   })
 
-  it('should fail to build an impression because it misses a required field (resolvedBidId)', async () => {
+  it('should fail because it misses a required field (resolvedBidId)', async () => {
     nock(/.*/).persist().post(/.*/).reply(200)
 
     const event = createTestEvent({})
