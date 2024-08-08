@@ -11,7 +11,7 @@ describe('Topsort', () => {
     it('is an impression event', async () => {
       nock('https://api.topsort.com')
         .post(
-          'v2/events',
+          '/v2/events',
           matches({
             impressions: [
               {
@@ -37,7 +37,7 @@ describe('Topsort', () => {
     it('is an click event', async () => {
       nock('https://api.topsort.com')
         .post(
-          'v2/events',
+          '/v2/events',
           matches({
             clicks: [
               {
@@ -63,7 +63,7 @@ describe('Topsort', () => {
     it('is an purchase event', async () => {
       nock('https://api.topsort.com')
         .post(
-          'v2/events',
+          '/v2/events',
           matches({
             purchases: [
               {
