@@ -31,6 +31,23 @@ describe('Topsort.purchase', () => {
 
     expect(responses.length).toBe(1)
     expect(responses[0].status).toBe(200)
+    expect(responses[0].options.headers).toMatchSnapshot()
+    expect(responses[0].options.json).toMatchObject({
+      purchases: expect.arrayContaining([
+        expect.objectContaining({
+          id: expect.any(String),
+          occurredAt: expect.any(String),
+          opaqueUserId: expect.any(String),
+          items: [
+            {
+              productId: '123',
+              unitPrice: 100,
+              quantity: 1
+            }
+          ]
+        })
+      ])
+    })
   })
 
   it('should fail because it misses a required field (products)', async () => {
