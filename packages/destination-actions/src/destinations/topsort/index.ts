@@ -55,14 +55,14 @@ const destination: DestinationDefinition<Settings> = {
       name: 'Banner Impression',
       subscribe: 'type = "track" and event = "Banner Viewed"',
       partnerAction: 'bannerImpression',
-      mapping: defaultValues(bannerImpression.fields),
+      mapping: defaultValues(impression.fields),
       type: 'automatic'
     },
     {
       name: 'Banner Click',
       subscribe: 'type = "track" and event = "Banner Clicked"',
       partnerAction: 'bannerClick',
-      mapping: defaultValues(bannerClick.fields),
+      mapping: defaultValues(click.fields),
       type: 'automatic'
     }
   ],
