@@ -10,16 +10,14 @@ describe('Topsort.purchase', () => {
     nock(/.*/).persist().post(/.*/).reply(200)
 
     const event = createTestEvent({
-      properties: {
-        products: [
-          {
-            product_id: '123',
-            price: 100,
-            quantity: 1,
-            vendor_id: 'v123'
-          }
-        ]
-      }
+      products: [
+        {
+          product_id: '123',
+          price: 100,
+          quantity: 1,
+          brand: 'v123'
+        }
+      ]
     })
 
     const responses = await testDestination.testAction('purchase', {

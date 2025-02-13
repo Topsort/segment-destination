@@ -61,11 +61,17 @@ const action: ActionDefinition<Settings, Payload> = {
           description: 'Count of products purchased.',
           type: 'integer',
           required: false
+        },
+        vendorId: {
+          label: 'Vendor ID',
+          description: 'The vendor ID of the product being purchased.',
+          type: 'string',
+          required: false
         }
       },
       default: {
         '@arrayPath': [
-          '$.properties.products',
+          '$.products',
           {
             productId: { '@path': '$.product_id' },
             unitPrice: { '@path': '$.price' },
