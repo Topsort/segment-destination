@@ -76,7 +76,13 @@ const action: ActionDefinition<Settings, Payload> = {
             productId: { '@path': '$.product_id' },
             unitPrice: { '@path': '$.price' },
             quantity: { '@path': '$.quantity' },
-            vendorId: { '@path': '$.brand' }
+            vendorId: {
+              '@if': {
+                exists: { '@path': '$.vendorId' },
+                then: { '@path': '$.vendorId' },
+                else: { '@path': '$.brand' }
+              }
+            }
           }
         ]
       }
